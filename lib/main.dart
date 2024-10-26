@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'pages/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,102 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginScreen(),
-    );
-  }
-}
-
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
-
-  @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset('assets/img/loginu.jpeg',
-                height: 200, width: 200), // Image for login
-            const SizedBox(height: 20),
-            const Text(
-              'Login',
-              style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue),
-            ),
-            const SizedBox(height: 20),
-            TextField(
-              controller: _usernameController,
-              decoration: const InputDecoration(
-                labelText: 'Username',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 10),
-            TextField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Password',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Align(
-              alignment: Alignment.centerRight,
-              child: GestureDetector(
-                onTap: () {
-                  // Action for Forgot Password
-                },
-                child: const Text(
-                  'Forgot Password?',
-                  style: TextStyle(color: Colors.blue),
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                // Passing username to HomeScreen
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        HomeScreen(username: _usernameController.text),
-                  ),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue[700],
-              ),
-              child: const Text('Login',
-                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
-            ),
-            const SizedBox(height: 10),
-            const Text('Or'),
-            GestureDetector(
-              onTap: () {
-                // Action for Register
-              },
-              child: const Text(
-                'Register',
-                style: TextStyle(color: Colors.blue),
-              ),
-            ),
-          ],
-        ),
-      ),
+      home: LoginScreen(),
     );
   }
 }
@@ -127,7 +33,7 @@ class HomeScreen extends StatelessWidget {
           'Home',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: const Color.fromARGB(255, 8, 122, 221),
+        backgroundColor: const Color.fromARGB(255, 8, 221, 146),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
